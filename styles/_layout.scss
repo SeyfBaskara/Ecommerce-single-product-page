@@ -1,4 +1,5 @@
 $white: white;
+$dark-grayish-blue: hsl(219, 9%, 45%);
 
 .header {
    display: flex;
@@ -48,6 +49,20 @@ $white: white;
       .header-avatar {
          margin-left: 1rem;
          margin-top: 0.2rem;
+      }
+   }
+}
+
+.footer {
+   padding: 1rem;
+   margin-bottom: 3rem;
+   .footer__attribution {
+      font-size: 0.75rem;
+      text-align: center;
+      color: $dark-grayish-blue;
+      .footer__link {
+         font-weight: 700;
+         margin-left: 0.2rem;
       }
    }
 }
