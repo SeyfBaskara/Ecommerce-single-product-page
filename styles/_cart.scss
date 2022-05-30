@@ -4,7 +4,6 @@ $black: hsl(0, 0%, 0%);
 $white: hsl(0, 0%, 100%);
 
 .cart {
-   display: none;
    margin: 0 0.5rem;
    background-color: $white;
    border-radius: 0.5rem;
@@ -22,6 +21,7 @@ $white: hsl(0, 0%, 100%);
 
    .cart__product {
       padding: 1rem;
+      margin-top: -0.8rem;
       .cart__product-details {
          display: flex;
          justify-content: center;
