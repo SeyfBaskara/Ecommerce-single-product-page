@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Cart from '../components/Cart'
 import Product from '../components/Product'
 
 const Home: NextPage = () => {
@@ -12,6 +13,7 @@ const Home: NextPage = () => {
          </Head>
 
          <Product />
+         <Cart />
       </>
    )
 }
