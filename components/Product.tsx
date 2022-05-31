@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 
 const data = {
@@ -10,6 +10,20 @@ const data = {
    discountPrice: 125.0,
    discountRate: '50%',
    count: 0,
+   sliderImage: [
+      {
+         image: '/images/image-product-1.jpg',
+      },
+      {
+         image: '/images/image-product-2.jpg',
+      },
+      {
+         image: '/images/image-product-3.jpg',
+      },
+      {
+         image: '/images/image-product-4.jpg',
+      },
+   ],
 }
 
 interface Iproduct {
@@ -20,15 +34,23 @@ interface Iproduct {
    discountPrice: number
    discountRate: string
    count: number
+   sliderImage: ISliderImage[]
+}
+
+interface ISliderImage {
+   image: string
 }
 
 const Product: React.FC = () => {
    const [product, setProduct] = useState<Iproduct>(data)
-   const [slideIndex, setSlideIndex] = useState<number>(1)
-   const slides = useRef<HTMLDivElement>(null)
+   const [current, setCurrent] = useState<number>(0)
+   const length: number = product.sliderImage.length
 
-   const handleSlides = () => {
-      console.log(slides)
+   const handleNextSlide = () => {
+      setCurrent(current === length - 1 ? 0 : current + 1)
+   }
+   const handlePrevSlide = () => {
+      setCurrent(current === 0 ? length - 1 : current - 1)
    }
 
    const handleProducNumber = (operator: string) => {
@@ -44,31 +66,22 @@ const Product: React.FC = () => {
    }
 
    return (
-      <main className="product">
-         <figure className="product__figure">
-            <div className="product__image" ref={slides}>
-               <Image src="/images/image-product-1.jpg" alt="product-1" width={400} height={350} />
-            </div>
-            {/* <div className="product__image" ref={slides}>
-               <Image src="/images/image-product-2.jpg" alt="product-2" width={400} height={350} />
-            </div>
-            <div className="product__image" ref={slides}>
-               <Image src="/images/image-product-3.jpg" alt="product-3" width={400} height={350} />
-            </div>
-            <div className="product__image" ref={slides}>
-               <Image src="/images/image-product-4.jpg" alt="product-4" width={400} height={350} />
-            </div> */}
-         </figure>
-         <article className="product__icon-wrapper">
-            <div className="product__icon-previous" onClick={handleSlides}>
+      <article className="product">
+         <section className="product__slider">
+            <div className="product__slider-prev" onClick={handlePrevSlide}>
                <Image src="/images/icon-previous.svg" alt="previus" width={13} height={18} />
             </div>
-            <div className="product__icon-next" onClick={handleSlides}>
+            <div className="product__slider-next" onClick={handleNextSlide}>
                <Image src="/images/icon-next.svg" alt="next" width={13} height={18} />
             </div>
-         </article>
+            {product.sliderImage.map(({ image }, index) => (
+               <div className={index === current ? 'product__image active' : 'product__image'} key={index}>
+                  {index === current && <Image src={image} alt="product image" layout="fill" objectFit="cover" />}
+               </div>
+            ))}
+         </section>
 
-         <article className="product__details">
+         <section className="product__details">
             <hgroup>
                <h4 className="product__company-name">{product.companyName}</h4>
                <h1 className="product__title">{product.title}</h1>
@@ -95,8 +108,8 @@ const Product: React.FC = () => {
                   <p className="product__btn-text">Add to cart</p>
                </button>
             </article>
-         </article>
-      </main>
+         </section>
+      </article>
    )
 }
 

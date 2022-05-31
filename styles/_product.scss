@@ -10,35 +10,35 @@ $black: hsl(0, 0%, 0%);
 
 .product {
    display: flex;
-   position: relative;
    flex-direction: column;
 
-   .product__figure {
-      //   display: flex;
-      //   max-width: 1000px;
-      //   overflow: auto;
-      max-width: 1000px;
+   .product__slider {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       position: relative;
-      margin: auto;
       .product__image {
-         display: block;
+         width: 400px;
+         height: 300px;
       }
-   }
-   .product__icon-wrapper {
-      .product__icon-previous,
-      .product__icon-next {
+
+      .product__slider-prev,
+      .product__slider-next {
          position: absolute;
-         top: 17%;
-         width: 1rem;
-         height: 1rem;
+         top: 43%;
+         z-index: 10;
+         cursor: pointer;
+         user-select: none;
+         background-color: white;
+         padding: 0.5rem 0.7rem;
+         border-radius: 50%;
+         font-size: 0.3rem;
       }
-      .product__icon-previous {
-         left: 0.5rem;
-         transform: translate(50%);
+      .product__slider-prev {
+         left: 1rem;
       }
-      .product__icon-next {
-         right: 0.5rem;
-         transform: translate(-50%);
+      .product__slider-next {
+         right: 1rem;
       }
    }
 

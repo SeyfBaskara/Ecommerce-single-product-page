@@ -1,13 +1,13 @@
 import React, { useState, createContext, useContext, Dispatch, SetStateAction } from 'react'
 
-interface IContext {
-   showCart: boolean
-   setShowCart: Dispatch<SetStateAction<any>>
-}
-
 const initicalContext = {
    showCart: false,
    setShowCart: () => {},
+}
+
+interface IContext {
+   showCart: boolean
+   setShowCart: Dispatch<SetStateAction<any>>
 }
 
 const AppContext = createContext<IContext>(initicalContext)

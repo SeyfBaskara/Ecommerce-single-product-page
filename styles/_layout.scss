@@ -19,7 +19,6 @@ $dark-grayish-blue: hsl(219, 9%, 45%);
    }
 
    .header__nav {
-      // display: none;
       position: absolute;
       background-color: $white;
       top: 0;
@@ -27,7 +26,7 @@ $dark-grayish-blue: hsl(219, 9%, 45%);
       width: 50%;
       height: 59rem;
       padding: 1rem;
-      z-index: 1;
+      z-index: 99;
 
       .header__nav-list {
          list-style: none;
