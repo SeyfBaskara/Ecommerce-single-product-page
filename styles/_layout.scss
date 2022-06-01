@@ -5,13 +5,21 @@
    padding: 1rem;
    position: relative;
 
+   @include md {
+      width: 80%;
+      margin: 0 auto;
+      justify-content: start;
+      border-bottom: 1px solid $light-grayish-blue;
+   }
+
    .header__left {
       display: flex;
       align-items: center;
+      background-color: white;
       .header-menu {
          margin-right: 1rem;
          margin-top: 0.4rem;
-         @include xl {
+         @include md {
             display: none;
          }
       }
@@ -27,6 +35,19 @@
       padding: 1rem;
       z-index: 99;
 
+      @include md {
+         display: block !important;
+         position: static;
+         height: auto;
+         width: 35%;
+         padding: 0;
+         padding-top: 1rem;
+         margin-left: 3rem;
+         .header__nav-close {
+            display: none;
+         }
+      }
+
       .header__nav-list {
          list-style: none;
          margin-top: 2rem;
@@ -38,12 +59,33 @@
          li:nth-child(4) {
             padding: 1rem 0;
          }
+
+         @include md {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 0;
+            padding: 0;
+            font-size: 0.9rem;
+            color: $dark-grayish-blue;
+
+            li:nth-child(4) {
+               padding: 0;
+            }
+            li:nth-child(2) {
+               padding: 0;
+            }
+         }
       }
    }
 
    .header__right {
       display: flex;
       align-items: center;
+      @include md {
+         position: absolute;
+         right: 0;
+      }
       .header-avatar {
          margin-left: 1rem;
          margin-top: 0.2rem;
@@ -58,6 +100,9 @@
       font-size: 0.75rem;
       text-align: center;
       color: $dark-grayish-blue;
+      @include md {
+         font-size: 1rem;
+      }
       .footer__link {
          font-weight: 700;
          margin-left: 0.2rem;

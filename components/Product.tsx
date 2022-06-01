@@ -53,7 +53,7 @@ const Product: React.FC = () => {
       setCurrent(current === 0 ? length - 1 : current - 1)
    }
 
-   const handleProducNumber = (operator: string) => {
+   const handleProductNumber = (operator: string) => {
       if (operator === '+') {
          setProduct({ ...product, count: product.count + 1 })
       } else if (product.count !== 0 && operator === '-') {
@@ -82,32 +82,46 @@ const Product: React.FC = () => {
          </section>
 
          <section className="product__details">
-            <hgroup>
-               <h4 className="product__company-name">{product.companyName}</h4>
-               <h1 className="product__title">{product.title}</h1>
-            </hgroup>
-            <p className="product__description">{product.description}</p>
-            <article className="product__prices">
-               <h1 className="product__price">
-                  ${product.discountPrice} <span className="product__discount">{product.discountRate}</span>
-               </h1>
-               <p className="product__prev-price">
-                  <s>${product.actualPrice}</s>
-               </p>
-            </article>
-            <article>
-               <div className="product__number-set">
-                  <Image onClick={() => handleProducNumber('-')} src="/images/icon-minus.svg" alt="minus" width={12} height={4} />
-                  <p>{product.count}</p>
-                  <Image onClick={() => handleProducNumber('+')} src="/images/icon-plus.svg" alt="plus" width={12} height={12} />
-               </div>
-               <button onClick={handleAddToCart} className="product__add-btn">
-                  <div className="product__btn-icon">
-                     <Image src="/images/icon-cart.svg" alt="cart" width={18} height={16} />
+            <div className="product__details-wrapper">
+               <hgroup>
+                  <h4 className="product__company-name">{product.companyName}</h4>
+                  <h1 className="product__title">{product.title}</h1>
+               </hgroup>
+               <p className="product__description">{product.description}</p>
+               <article className="product__prices">
+                  <h1 className="product__price">
+                     ${product.discountPrice} <span className="product__discount">{product.discountRate}</span>
+                  </h1>
+                  <p className="product__prev-price">
+                     <s>${product.actualPrice}</s>
+                  </p>
+               </article>
+               <article className="product__sets">
+                  <div className="product__number-set">
+                     <Image
+                        onClick={() => handleProductNumber('-')}
+                        src="/images/icon-minus.svg"
+                        alt="minus"
+                        width={12}
+                        height={4}
+                     />
+                     <p>{product.count}</p>
+                     <Image
+                        onClick={() => handleProductNumber('+')}
+                        src="/images/icon-plus.svg"
+                        alt="plus"
+                        width={12}
+                        height={12}
+                     />
                   </div>
-                  <p className="product__btn-text">Add to cart</p>
-               </button>
-            </article>
+                  <button onClick={handleAddToCart} className="product__add-btn">
+                     <div className="product__btn-icon">
+                        <Image src="/images/icon-cart.svg" alt="cart" width={18} height={16} />
+                     </div>
+                     <p className="product__btn-text">Add to cart</p>
+                  </button>
+               </article>
+            </div>
          </section>
       </article>
    )

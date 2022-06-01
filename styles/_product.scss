@@ -8,17 +8,34 @@
    padding: 0.5rem 0.7rem;
    border-radius: 50%;
    font-size: 0.3rem;
+
+   @include md {
+      display: none;
+   }
 }
 
 .product {
    display: flex;
    flex-direction: column;
 
+   @include md {
+      flex-direction: row;
+      width: 80%;
+      margin: 0 auto;
+      margin-top: 3rem;
+   }
    .product__slider {
       display: flex;
       justify-content: center;
       align-items: center;
       position: relative;
+
+      @include md {
+         flex: 1 1 0;
+         position: static;
+         background-color: lightblue;
+      }
+
       .product__slider-prev {
          @extend %slider-icon;
          left: 1rem;
@@ -32,6 +49,16 @@
    .product__details {
       padding: 0 1rem;
 
+      @include md {
+         flex: 1 1 0;
+      }
+
+      .product__details-wrapper {
+         @include md {
+            width: 80%;
+            margin: 0 auto;
+         }
+      }
       .product__company-name {
          color: $orange;
          text-transform: uppercase;
@@ -42,6 +69,11 @@
          font-size: 1.4rem;
          margin-right: 2.5rem;
          margin-bottom: -0.3rem;
+
+         @include md {
+            font-size: 2rem;
+            margin-top: 1rem;
+         }
       }
       .product__description {
          color: $dark-grayish-blue;
@@ -52,6 +84,12 @@
          justify-content: space-between;
          align-items: center;
          position: relative;
+
+         @include md {
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+         }
 
          .product__price {
             font-size: 1.4rem;
@@ -68,9 +106,22 @@
          .product__prev-price {
             color: $grayish-blue;
             font-weight: 700;
+
+            @include md {
+               position: absolute;
+               top: 2.7rem;
+            }
+         }
+      }
+      .product__sets {
+         @include md {
+            display: flex;
+            justify-content: center;
+            align-items: center;
          }
       }
       .product__number-set {
+         flex: 1 1 0;
          display: flex;
          justify-content: space-between;
          align-items: center;
@@ -79,8 +130,13 @@
          border-radius: 0.5rem;
          background-color: $light-grayish-blue;
          font-weight: 700;
+
+         @include md {
+            margin: 0;
+         }
       }
       .product__add-btn {
+         flex: 2 1 0;
          display: flex;
          justify-content: center;
          align-items: center;
@@ -91,6 +147,11 @@
          border-radius: 0.5rem;
          background-color: $orange;
          color: $white;
+
+         @include md {
+            margin: 0;
+            margin-left: 1rem;
+         }
 
          .product__btn-icon {
             filter: invert(77%) sepia(100%) saturate(0%) hue-rotate(29deg) brightness(210%) contrast(101%);

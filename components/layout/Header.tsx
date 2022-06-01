@@ -1,11 +1,10 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import Image from 'next/image'
 import { useData } from '../../context/Appcontext'
 
 const Header: React.FC = () => {
    const [displayNav, setDisplayNav] = useState<boolean>(false)
    const { setShowCart } = useData()
-   const navBar = useRef<HTMLElement>(null)
 
    const handleNavigation = (state: string) => {
       if (state === 'open') {
@@ -27,18 +26,19 @@ const Header: React.FC = () => {
             </div>
             <Image src="/images/logo.svg" alt="logo" width={138} height={20} />
          </section>
-         {displayNav && (
-            <nav className="header__nav" ref={navBar}>
+         <div className="header__nav" style={displayNav ? { display: 'block' } : { display: 'none' }}>
+            <div className="header__nav-close">
                <Image onClick={() => handleNavigation('close')} src="/images/icon-close.svg" alt="close" width={14} height={15} />
-               <ul className="header__nav-list">
-                  <li>Collections</li>
-                  <li>Men</li>
-                  <li>Women</li>
-                  <li>About</li>
-                  <li>Contact</li>
-               </ul>
-            </nav>
-         )}
+            </div>
+            <ul className="header__nav-list">
+               <li>Collections</li>
+               <li>Men</li>
+               <li>Women</li>
+               <li>About</li>
+               <li>Contact</li>
+            </ul>
+         </div>
+
          <section className="header__right">
             <Image onClick={handleCart} src="/images/icon-cart.svg" alt="icon card" width={22} height={20} />
             <div className="header-avatar">
