@@ -5,6 +5,7 @@ import { useData } from '../../context/Appcontext'
 const Header: React.FC = () => {
    const [displayNav, setDisplayNav] = useState<boolean>(false)
    const { setShowCart } = useData()
+   const navBar = useRef<HTMLElement>(null)
 
    const handleNavigation = (state: string) => {
       if (state === 'open') {
@@ -27,7 +28,7 @@ const Header: React.FC = () => {
             <Image src="/images/logo.svg" alt="logo" width={138} height={20} />
          </section>
          {displayNav && (
-            <nav className="header__nav">
+            <nav className="header__nav" ref={navBar}>
                <Image onClick={() => handleNavigation('close')} src="/images/icon-close.svg" alt="close" width={14} height={15} />
                <ul className="header__nav-list">
                   <li>Collections</li>

@@ -76,7 +76,7 @@ const Product: React.FC = () => {
             </div>
             {product.sliderImage.map(({ image }, index) => (
                <div className={index === current ? 'product__image active' : 'product__image'} key={index}>
-                  {index === current && <Image src={image} alt="product image" layout="fill" objectFit="cover" />}
+                  {index === current && <Image src={image} alt="product image" width="400" height="350" />}
                </div>
             ))}
          </section>

@@ -1,4 +1,11 @@
-@use 'base';
-@use 'layout';
-@use 'product';
-@use 'cart';
+// variables & functions
+@import 'variables';
+
+// base & layout
+@import 'base';
+@import 'breakpoints';
+@import 'layout';
+
+// components (cart, product)
+@import 'product';
+@import 'cart';
