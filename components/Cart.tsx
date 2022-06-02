@@ -22,7 +22,7 @@ const Cart: React.FC = () => {
                               <Image src="/images/image-product-1.jpg" alt="product-1" width={70} height={60} />
                            </div>
                            <p className="cart__product-description">
-                              {cart.productName} ${cart.price} x {cart.count}
+                              {cart.productName.replace(/\w+[.!?]?$/, '...')} <br /> ${cart.price} x {cart.count}
                               <span className="cart__product-price">${cart.price * cart.count}</span>
                            </p>
                            <button className="cart__product-delete" onClick={handleDelete}>

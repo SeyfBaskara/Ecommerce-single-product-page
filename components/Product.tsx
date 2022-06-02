@@ -76,21 +76,13 @@ const Product: React.FC = () => {
                </article>
                <article className="product__sets">
                   <div className="product__number-set">
-                     <Image
-                        onClick={() => handleProductNumber('-')}
-                        src="/images/icon-minus.svg"
-                        alt="minus"
-                        width={12}
-                        height={4}
-                     />
+                     <button className="product__number-btn" onClick={() => handleProductNumber('-')}>
+                        <Image src="/images/icon-minus.svg" alt="minus" width={12} height={4} />
+                     </button>
                      <p>{product.count}</p>
-                     <Image
-                        onClick={() => handleProductNumber('+')}
-                        src="/images/icon-plus.svg"
-                        alt="plus"
-                        width={12}
-                        height={12}
-                     />
+                     <button className="product__number-btn" onClick={() => handleProductNumber('+')}>
+                        <Image src="/images/icon-plus.svg" alt="plus" width={12} height={12} />
+                     </button>
                   </div>
                   <button onClick={handleAddToCart} className="product__add-btn">
                      <div className="product__btn-icon">

@@ -171,6 +171,13 @@
          background-color: $light-grayish-blue;
          font-weight: 700;
 
+         .product__number-btn {
+            padding: 0.5rem;
+            border: none;
+            background-color: $light-grayish-blue;
+            cursor: pointer;
+         }
+
          @include md {
             margin: 0;
          }
@@ -201,6 +208,10 @@
             font-size: 1.1rem;
             font-weight: 400;
             margin-left: 1rem;
+
+            @include md {
+               font-size: 1rem;
+            }
          }
       }
    }
