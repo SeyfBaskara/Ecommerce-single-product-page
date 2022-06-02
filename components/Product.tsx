@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import { data } from '../data/data'
+import { useData } from '../context/Appcontext'
 
 const Product: React.FC = () => {
    const [product, setProduct] = useState<Iproduct>(data)
    const [current, setCurrent] = useState<number>(0)
    const length: number = product.sliderImages.length
+   const { setCart } = useData()
 
    const handleNextSlide = () => {
       setCurrent(current === length - 1 ? 0 : current + 1)
@@ -23,7 +25,10 @@ const Product: React.FC = () => {
    }
 
    const handleAddToCart = () => {
-      console.log('add to cart')
+      if (product.count !== 0) {
+         setCart({ productName: product.title, price: product.discountPrice, count: product.count })
+      }
+      setProduct({ ...product, count: 0 })
    }
 
    return (

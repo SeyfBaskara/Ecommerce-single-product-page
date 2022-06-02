@@ -3,9 +3,10 @@
    background-color: $white;
    border-radius: 0.5rem;
    width: 360px;
+   height: auto;
    position: absolute;
    top: 5rem;
-   z-index: 100;
+   z-index: 10;
 
    @include md {
       width: 330px;
@@ -36,13 +37,21 @@
          }
 
          .cart__product-description {
-            width: 250px;
+            width: 270px;
             padding-left: 1rem;
             color: $grayish-blue;
          }
          .cart__product-price {
             color: $black;
             font-weight: 700;
+            margin-left: 0.8rem;
+         }
+         .cart__product-delete {
+            border: none;
+            padding: 0.3rem 0.5rem;
+            border-radius: 1rem;
+            background-color: $white;
+            cursor: pointer;
          }
       }
       .cart__checkout-btn {
@@ -54,10 +63,18 @@
          color: $white;
          font-size: 1.1rem;
          margin: 0.5rem 0 1rem;
+         cursor: pointer;
 
          @include md {
             padding: 0.6rem;
          }
+      }
+
+      .cart__product-empty {
+         text-align: center;
+         margin: 3.5rem 0;
+         color: $dark-grayish-blue;
+         font-size: 1.2rem;
       }
    }
 }

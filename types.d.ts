@@ -16,5 +16,13 @@ interface ISliderImage {
 
 interface IContext {
    showCart: boolean
-   setShowCart: Dispatch<SetStateAction<any>>
+   setShowCart: Dispatch<SetStateAction<boolean>>
+   cart: ICart
+   setCart: Dispatch<SetStateAction<any>>
+}
+
+interface ICart {
+   productName: string
+   price: number
+   count: number
 }

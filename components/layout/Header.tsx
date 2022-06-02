@@ -4,7 +4,7 @@ import { useData } from '../../context/Appcontext'
 
 const Header: React.FC = () => {
    const [displayNav, setDisplayNav] = useState<boolean>(false)
-   const { setShowCart } = useData()
+   const { setShowCart, cart } = useData()
 
    const handleNavigation = (state: string) => {
       if (state === 'open') {
@@ -40,6 +40,7 @@ const Header: React.FC = () => {
          </div>
 
          <section className="header__right">
+            {cart.count !== 0 && <p className="header__right-cart">{cart.count}</p>}
             <Image onClick={handleCart} src="/images/icon-cart.svg" alt="icon card" width={22} height={20} />
             <div className="header-avatar">
                <Image src="/images/image-avatar.png" alt="avatar" layout="intrinsic" width={27} height={27} />

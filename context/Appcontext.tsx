@@ -3,16 +3,21 @@ import React, { useState, createContext, useContext, Dispatch, SetStateAction } 
 const initicalContext = {
    showCart: false,
    setShowCart: () => {},
+   cart: { productName: '', price: 0, count: 0 },
+   setCart: () => {},
 }
 
 const AppContext = createContext<IContext>(initicalContext)
 
 const AppProvider = ({ children }: any) => {
-   const [showCart, setShowCart] = useState<boolean>(false)
+   const [showCart, setShowCart] = useState(initicalContext.showCart)
+   const [cart, setCart] = useState(initicalContext.cart)
 
    const value = {
       showCart,
       setShowCart,
+      cart,
+      setCart,
    }
    return (
       <>
