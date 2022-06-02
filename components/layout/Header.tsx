@@ -42,7 +42,7 @@ const Header: React.FC = () => {
          <section className="header__right">
             <Image onClick={handleCart} src="/images/icon-cart.svg" alt="icon card" width={22} height={20} />
             <div className="header-avatar">
-               <Image src="/images/image-avatar.png" alt="avatar" width={27} height={27} />
+               <Image src="/images/image-avatar.png" alt="avatar" layout="intrinsic" width={27} height={27} />
             </div>
          </section>
       </header>

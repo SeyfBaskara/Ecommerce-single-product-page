@@ -82,6 +82,7 @@
    .header__right {
       display: flex;
       align-items: center;
+      cursor: pointer;
       @include md {
          position: absolute;
          right: 0;
@@ -89,6 +90,13 @@
       .header-avatar {
          margin-left: 1rem;
          margin-top: 0.2rem;
+         border: 2px solid white;
+
+         &:hover {
+            overflow: hidden;
+            border: 2px solid $orange;
+            border-radius: 50%;
+         }
       }
    }
 }

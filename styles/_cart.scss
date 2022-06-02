@@ -7,6 +7,13 @@
    top: 5rem;
    z-index: 100;
 
+   @include md {
+      width: 330px;
+      top: 4rem;
+      right: 4rem;
+      box-shadow: 0 1rem 3rem $grayish-blue;
+   }
+
    .cart__title {
       border-bottom: 0.1rem solid $grayish-blue;
       margin-top: 0;
@@ -47,6 +54,10 @@
          color: $white;
          font-size: 1.1rem;
          margin: 0.5rem 0 1rem;
+
+         @include md {
+            padding: 0.6rem;
+         }
       }
    }
 }

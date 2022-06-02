@@ -187,6 +187,7 @@
          border-radius: 0.5rem;
          background-color: $orange;
          color: $white;
+         cursor: pointer;
 
          @include md {
             margin: 0;
