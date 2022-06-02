@@ -10,7 +10,7 @@ const data = {
    discountPrice: 125.0,
    discountRate: '50%',
    count: 0,
-   sliderImage: [
+   sliderImages: [
       {
          image: '/images/image-product-1.jpg',
       },
@@ -24,6 +24,20 @@ const data = {
          image: '/images/image-product-4.jpg',
       },
    ],
+   sliderThumbnailImages: [
+      {
+         image: '/images/image-product-1-thumbnail.jpg',
+      },
+      {
+         image: '/images/image-product-2-thumbnail.jpg',
+      },
+      {
+         image: '/images/image-product-3-thumbnail.jpg',
+      },
+      {
+         image: '/images/image-product-4-thumbnail.jpg',
+      },
+   ],
 }
 
 interface Iproduct {
@@ -34,7 +48,8 @@ interface Iproduct {
    discountPrice: number
    discountRate: string
    count: number
-   sliderImage: ISliderImage[]
+   sliderImages: ISliderImage[]
+   sliderThumbnailImages: ISliderImage[]
 }
 
 interface ISliderImage {
@@ -44,7 +59,7 @@ interface ISliderImage {
 const Product: React.FC = () => {
    const [product, setProduct] = useState<Iproduct>(data)
    const [current, setCurrent] = useState<number>(0)
-   const length: number = product.sliderImage.length
+   const length: number = product.sliderImages.length
 
    const handleNextSlide = () => {
       setCurrent(current === length - 1 ? 0 : current + 1)
@@ -67,18 +82,30 @@ const Product: React.FC = () => {
 
    return (
       <article className="product">
-         <section className="product__slider">
-            <div className="product__slider-prev" onClick={handlePrevSlide}>
-               <Image src="/images/icon-previous.svg" alt="previus" width={13} height={18} />
-            </div>
-            <div className="product__slider-next" onClick={handleNextSlide}>
-               <Image src="/images/icon-next.svg" alt="next" width={13} height={18} />
-            </div>
-            {product.sliderImage.map(({ image }, index) => (
-               <div className={index === current ? 'product__image active' : 'product__image'} key={index}>
-                  {index === current && <Image src={image} alt="product image" width="400" height="350" />}
+         <section className="product__slides">
+            <div className="product__slider">
+               <div className="product__slider-prev" onClick={handlePrevSlide}>
+                  <Image src="/images/icon-previous.svg" alt="previus" width={13} height={18} />
                </div>
-            ))}
+               <div className="product__slider-next" onClick={handleNextSlide}>
+                  <Image src="/images/icon-next.svg" alt="next" width={13} height={18} />
+               </div>
+               <div className="slider__image-wrapper">
+                  {product.sliderImages.map(({ image }, index) => (
+                     <div className={index === current ? 'product__images active' : 'product__images'} key={index}>
+                        {index === current && <Image src={image} alt="product image" layout="fill" className={'image'} />}
+                     </div>
+                  ))}
+               </div>
+            </div>
+
+            <div className="slider__thumbnail-wappper">
+               {product.sliderThumbnailImages.map(({ image }, index) => (
+                  <div key={index} className="product__thumbnail-images">
+                     <Image src={image} alt="thumbnail image" width={70} height={70} />
+                  </div>
+               ))}
+            </div>
          </section>
 
          <section className="product__details">
