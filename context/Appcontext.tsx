@@ -5,16 +5,7 @@ const initicalContext = {
    setShowCart: () => {},
 }
 
-interface IContext {
-   showCart: boolean
-   setShowCart: Dispatch<SetStateAction<any>>
-}
-
 const AppContext = createContext<IContext>(initicalContext)
-
-export function useData() {
-   return useContext(AppContext)
-}
 
 const AppProvider = ({ children }: any) => {
    const [showCart, setShowCart] = useState<boolean>(false)
@@ -30,4 +21,5 @@ const AppProvider = ({ children }: any) => {
    )
 }
 
+export const useData = () => useContext(AppContext)
 export default AppProvider
