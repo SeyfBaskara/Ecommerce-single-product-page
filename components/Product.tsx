@@ -16,6 +16,10 @@ const Product: React.FC = () => {
       setCurrent(current === 0 ? length - 1 : current - 1)
    }
 
+   const handleThumbnailImages = (index: number) => {
+      setCurrent(index)
+   }
+
    const handleProductNumber = (operator: string) => {
       if (operator === '+') {
          setProduct({ ...product, count: product.count + 1 })
@@ -52,8 +56,12 @@ const Product: React.FC = () => {
 
             <div className="slider__thumbnail-wappper">
                {product.sliderThumbnailImages.map(({ image }, index) => (
-                  <div key={index} className="product__thumbnail-images">
-                     <Image src={image} alt="thumbnail image" width={70} height={70} />
+                  <div
+                     key={index}
+                     className={index === current ? 'product__thumbnail-images thumb-active' : 'product__thumbnail-images'}
+                     onClick={() => handleThumbnailImages(index)}
+                  >
+                     <Image src={image} alt="thumbnail image" layout="fill" />
                   </div>
                ))}
             </div>
