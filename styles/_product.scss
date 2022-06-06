@@ -8,10 +8,6 @@
    padding: 0.5rem 0.7rem;
    border-radius: 50%;
    font-size: 0.3rem;
-
-   @include md {
-      display: none;
-   }
 }
 
 .product {
@@ -37,35 +33,35 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
 
             @include md {
+               position: relative;
                width: 327px;
                height: 250px;
                left: 17%;
                border-radius: 0.5rem;
                overflow: hidden;
+               cursor: pointer;
             }
-
             .product__images {
                width: 400px;
                height: 350px;
-
-               // .image {
-               //    @include md {
-               //       object-fit: contain;
-               //    }
-               // }
             }
          }
 
          .product__slider-prev {
             @extend %slider-icon;
             left: 1rem;
+            @include md {
+               display: none;
+            }
          }
          .product__slider-next {
             @extend %slider-icon;
             right: 1rem;
+            @include md {
+               display: none;
+            }
          }
       }
 
@@ -223,5 +219,104 @@
             }
          }
       }
+   }
+}
+
+.lightbox {
+   display: none;
+
+   @include md {
+      display: block;
+   }
+   .lightbox__slides {
+      @include md {
+         flex: 1 1 0;
+         width: 38%;
+         position: absolute;
+         left: 0;
+         right: 0;
+         top: 20%;
+         margin-left: auto;
+         margin-right: auto;
+      }
+
+      .lightbox__close-icon {
+         position: relative;
+         width: 14px;
+         height: 15px;
+         left: 81%;
+         bottom: 0.8rem;
+         cursor: pointer;
+         filter: invert(77%) sepia(100%) saturate(0%) hue-rotate(29deg) brightness(210%) contrast(101%);
+      }
+
+      .lightbox__slider {
+         position: relative;
+         overflow: hidden;
+
+         .lightbox__image-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            @include md {
+               position: relative;
+               width: 327px;
+               height: 250px;
+               left: 17%;
+               border-radius: 0.5rem;
+               overflow: hidden;
+            }
+            .lightbox__images {
+               width: 400px;
+               height: 350px;
+            }
+         }
+
+         .lightbox__slider-prev {
+            @extend %slider-icon;
+            left: 4rem;
+         }
+         .lightbox__slider-next {
+            @extend %slider-icon;
+            right: 3.8rem;
+         }
+      }
+
+      .lightbox__thumbnail-wappper {
+         display: none;
+
+         @include md {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1rem;
+            gap: 1rem;
+            cursor: pointer;
+         }
+
+         .lightbox__thumbnail-images {
+            position: relative;
+            width: 70px;
+            height: 70px;
+            border-radius: 0.5rem;
+            overflow: hidden;
+         }
+
+         .lightboxthumb-active {
+            border: 3px solid $orange;
+            opacity: 0.7;
+         }
+      }
+   }
+}
+.lightboxActive {
+   @include md {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      background-color: rgba($color: $black, $alpha: 0.7);
    }
 }

@@ -19,14 +19,14 @@ const Cart: React.FC = () => {
                      <>
                         <div className="cart__product-details">
                            <div className="cart__product-img">
-                              <Image src="/images/image-product-1.jpg" alt="product-1" width={70} height={60} />
+                              <Image src="/images/image-product-1.jpg" alt="product-1" layout="fill" />
                            </div>
                            <p className="cart__product-description">
                               {cart.productName.replace(/\w+[.!?]?$/, '...')} <br /> ${cart.price} x {cart.count}
                               <span className="cart__product-price">${cart.price * cart.count}</span>
                            </p>
                            <button className="cart__product-delete" onClick={handleDelete}>
-                              <Image src="/images/icon-delete.svg" alt="delete" width={14} height={16} />
+                              <Image src="/images/icon-delete.svg" alt="delete" layout="fill" objectFit="contain" />
                            </button>
                         </div>
                         <button className="cart__checkout-btn">Checkout</button>

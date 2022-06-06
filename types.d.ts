@@ -19,6 +19,8 @@ interface IContext {
    setShowCart: Dispatch<SetStateAction<boolean>>
    cart: ICart
    setCart: Dispatch<SetStateAction<any>>
+   showLightBox: boolean
+   setShowLightBox: Dispatch<SetStateAction<boolean>>
 }
 
 interface ICart {

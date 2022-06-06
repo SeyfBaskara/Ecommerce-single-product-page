@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Cart from '../components/Cart'
+import LightBoxSlider from '../components/LightBoxSlider'
 import Product from '../components/Product'
 
 const Home: NextPage = () => {
@@ -14,6 +15,7 @@ const Home: NextPage = () => {
 
          <Product />
          <Cart />
+         <LightBoxSlider />
       </>
    )
 }

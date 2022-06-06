@@ -5,12 +5,15 @@ const initicalContext = {
    setShowCart: () => {},
    cart: { productName: '', price: 0, count: 0 },
    setCart: () => {},
+   showLightBox: false,
+   setShowLightBox: () => {},
 }
 
 const AppContext = createContext<IContext>(initicalContext)
 
 const AppProvider = ({ children }: any) => {
    const [showCart, setShowCart] = useState(initicalContext.showCart)
+   const [showLightBox, setShowLightBox] = useState(initicalContext.showLightBox)
    const [cart, setCart] = useState(initicalContext.cart)
 
    const value = {
@@ -18,6 +21,8 @@ const AppProvider = ({ children }: any) => {
       setShowCart,
       cart,
       setCart,
+      showLightBox,
+      setShowLightBox,
    }
    return (
       <>

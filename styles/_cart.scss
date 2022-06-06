@@ -28,18 +28,24 @@
       margin-top: -0.8rem;
       .cart__product-details {
          display: flex;
-         justify-content: center;
+         justify-content: space-between;
          align-items: center;
 
          .cart__product-img {
+            position: relative;
+            width: 60px;
+            height: 60px;
             border-radius: 0.5rem;
             overflow: hidden;
          }
 
          .cart__product-description {
-            width: 270px;
-            padding-left: 1rem;
+            margin-left: -2.5rem;
             color: $grayish-blue;
+
+            @include md {
+               margin-left: -1.2rem;
+            }
          }
          .cart__product-price {
             color: $black;
@@ -47,9 +53,11 @@
             margin-left: 0.8rem;
          }
          .cart__product-delete {
+            position: relative;
+            width: 14px;
+            height: 16px;
             border: none;
-            padding: 0.3rem 0.5rem;
-            border-radius: 1rem;
+            padding: 0.6rem;
             background-color: $white;
             cursor: pointer;
          }

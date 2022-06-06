@@ -7,13 +7,17 @@ const Product: React.FC = () => {
    const [product, setProduct] = useState<Iproduct>(data)
    const [current, setCurrent] = useState<number>(0)
    const length: number = product.sliderImages.length
-   const { setCart } = useData()
+   const { setCart, setShowLightBox } = useData()
 
    const handleNextSlide = () => {
       setCurrent(current === length - 1 ? 0 : current + 1)
    }
    const handlePrevSlide = () => {
       setCurrent(current === 0 ? length - 1 : current - 1)
+   }
+
+   const handleLightBox = () => {
+      setShowLightBox(true)
    }
 
    const handleThumbnailImages = (index: number) => {
@@ -47,8 +51,12 @@ const Product: React.FC = () => {
                </div>
                <div className="slider__image-wrapper">
                   {product.sliderImages.map(({ image }, index) => (
-                     <div className={index === current ? 'product__images active' : 'product__images'} key={index}>
-                        {index === current && <Image src={image} alt="product image" layout="fill" className={'image'} />}
+                     <div
+                        className={index === current ? 'product__images active' : 'product__images'}
+                        key={index}
+                        onClick={handleLightBox}
+                     >
+                        {index === current && <Image src={image} alt="product image" layout="fill" />}
                      </div>
                   ))}
                </div>

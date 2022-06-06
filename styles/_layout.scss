@@ -88,10 +88,10 @@
          position: absolute;
          right: 0;
       }
-      .header__right-cart {
+      .header__cart-count {
          position: absolute;
-         right: 4rem;
-         bottom: 1.3rem;
+         right: 3.9rem;
+         bottom: 1rem;
          font-size: 1rem;
          font-weight: 700;
          color: $white;
@@ -99,13 +99,15 @@
          background-color: $orange;
          border-radius: 50%;
          @include md {
-            bottom: 0.3rem;
-            right: 3rem;
+            bottom: 0;
+            right: 2.9rem;
          }
       }
       .header-avatar {
+         position: relative;
+         width: 29px;
+         height: 29px;
          margin-left: 1rem;
-         margin-top: 0.2rem;
          border: 2px solid white;
 
          &:hover {
