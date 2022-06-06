@@ -68,12 +68,59 @@
             padding: 0;
             font-size: 0.9rem;
             color: $dark-grayish-blue;
+            cursor: pointer;
 
-            li:nth-child(4) {
-               padding: 0;
+            li:hover {
+               &:after {
+                  content: '';
+                  display: inline-block;
+                  position: absolute;
+                  height: 0.2rem;
+                  background-color: $orange;
+                  top: 4.8rem;
+               }
+            }
+            li:nth-child(1) {
+               &:hover {
+                  &:after {
+                     width: 4.9rem;
+                     margin-left: -4.7rem;
+                  }
+               }
             }
             li:nth-child(2) {
                padding: 0;
+               &:hover {
+                  &:after {
+                     width: 2rem;
+                     margin-left: -2rem;
+                  }
+               }
+            }
+            li:nth-child(3) {
+               &:hover {
+                  &:after {
+                     width: 3.5rem;
+                     margin-left: -3.3rem;
+                  }
+               }
+            }
+            li:nth-child(4) {
+               padding: 0;
+               &:hover {
+                  &:after {
+                     width: 2.9rem;
+                     margin-left: -2.8rem;
+                  }
+               }
+            }
+            li:nth-child(5) {
+               &:hover {
+                  &:after {
+                     width: 3.5rem;
+                     margin-left: -3.5rem;
+                  }
+               }
             }
          }
       }

@@ -201,6 +201,10 @@
          color: $white;
          cursor: pointer;
 
+         &:hover {
+            opacity: 0.6;
+         }
+
          @include md {
             margin: 0;
             margin-left: 1rem;
@@ -235,7 +239,7 @@
          position: absolute;
          left: 0;
          right: 0;
-         top: 20%;
+         top: 12%;
          margin-left: auto;
          margin-right: auto;
       }
@@ -262,7 +266,7 @@
             @include md {
                position: relative;
                width: 327px;
-               height: 250px;
+               height: 327px;
                left: 17%;
                border-radius: 0.5rem;
                overflow: hidden;
