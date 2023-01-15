@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const Footer: React.FC = () => {
@@ -5,13 +6,17 @@ const Footer: React.FC = () => {
       <footer className="footer">
          <div className="footer__attribution">
             Challenge by
-            <a className="footer__link" href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noreferrer">
-               Frontend Mentor
-            </a>
+            <Link href="https://www.frontendmentor.io?ref=challenge">
+               <a className="footer__link" target="_blank" rel="noreferrer">
+                  Frontend Mentor
+               </a>
+            </Link>
             . Coded by
-            <a className="footer__link" href="https://seyfettinbaskara.vercel.app/" target="_blank" rel="noreferrer">
-               Seyfettin Baskara
-            </a>
+            <Link href="https://seyfettinbaskara.dev/">
+               <a className="footer__link" target="_blank" rel="noreferrer">
+                  Seyfettin Baskara
+               </a>
+            </Link>
             .
          </div>
       </footer>

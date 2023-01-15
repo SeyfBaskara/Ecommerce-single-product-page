@@ -26,7 +26,7 @@ const LightBoxSlider: React.FC = () => {
    return (
       <article className={showLightBox ? 'lightbox lightboxActive' : 'lightbox'}>
          {showLightBox && (
-            <section className="lightbox__slides">
+            <div className="lightbox__slides">
                <div className="lightbox__close-icon" onClick={handleLightBoxClose}>
                   <Image src="/images/icon-close.svg" alt="close icon" layout="fill" />
                </div>
@@ -51,7 +51,9 @@ const LightBoxSlider: React.FC = () => {
                      <div
                         key={index}
                         className={
-                           index === current ? 'lightbox__thumbnail-images lightboxthumb-active' : 'lightbox__thumbnail-images'
+                           index === current
+                              ? 'lightbox__thumbnail-images lightboxthumb-active'
+                              : 'lightbox__thumbnail-images'
                         }
                         onClick={() => handleThumbnailImages(index)}
                      >
@@ -59,7 +61,7 @@ const LightBoxSlider: React.FC = () => {
                      </div>
                   ))}
                </div>
-            </section>
+            </div>
          )}
       </article>
    )
